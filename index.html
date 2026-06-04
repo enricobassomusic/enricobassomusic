@@ -219,7 +219,6 @@
     letter-spacing: 0.3em;
     text-transform: uppercase;
     color: #6a6055;
-    font-weight: 600;
   }
 
   .stat-divider {
@@ -294,7 +293,7 @@
   /* CONTACT */
   .contact {
     padding: 7rem 6rem;
-    background: #f5f0e8;
+    background: var(--dark2);
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 6rem;
@@ -346,8 +345,8 @@
     color: var(--text-muted);
   }
 
- .form-input,
-.form-textarea {
+  .form-input,
+  .form-textarea {
     background: var(--dark3);
     border: 1px solid rgba(255,255,255,0.08);
     color: var(--text);
@@ -361,9 +360,7 @@
   }
 
   .form-input:focus,
-.form-input::placeholder,
-.form-textarea:focus {
-    border-color: var(--blue);
+  .form-textarea:focus { border-color: var(--blue); }
 
   .form-textarea { height: 120px; }
 
