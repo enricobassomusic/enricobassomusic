@@ -587,29 +587,7 @@
  
 </section>
 
-<!-- PROVA -->
-<div class="portfolio-grid">
-  <div class="portfolio-item">
-    <div class="portfolio-item-bg"></div>
-    <div class="portfolio-placeholder">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 18V5l12-2v13M9 9l12-2"/></svg>
-    </div>
-    <div class="portfolio-info">
-      <div class="portfolio-type">Game Scoring / Cortometraggio</div>
-      <div class="portfolio-title">Die by the Blade - FMC 2022</div>
-      <a href="#" data-video="YgvUfaiaVJg" class="portfolio-link open-video">Guarda il video →</a>
-    </div>
-  </div>
-</div>
-
-<div id="videoModal" class="video-modal">
-  <span class="close-modal">&times;</span>
-  <div class="video-modal-content">
-    <div class="video-responsive">
-      <iframe id="modalIframe" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
-  </div>
-</div>
+ 
  
 <!-- PORTFOLIO -->
 <section class="portfolio" id="portfolio">
@@ -697,36 +675,4 @@
 </footer>
 
 </body>
-
-<script>
-  document.querySelectorAll('.open-video').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const videoId = this.getAttribute('data-video');
-      const modal = document.getElementById('videoModal');
-      const iframe = document.getElementById('modalIframe');
-      
-      // Imposta il video con l'autoplay attivo al clic
-      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-      modal.style.display = 'flex';
-    });
-  });
-
-  // Funzione per chiudere il video e resettare l'iframe (ferma l'audio)
-  function closeModal() {
-    const modal = document.getElementById('videoModal');
-    const iframe = document.getElementById('modalIframe');
-    modal.style.display = 'none';
-    iframe.src = ''; 
-  }
-
-  // Chiude cliccando sulla X
-  document.querySelector('.close-modal').addEventListener('click', closeModal);
-
-  // Chiude cliccando in un punto qualsiasi dello sfondo scuro fuori dal video
-  document.getElementById('videoModal').addEventListener('click', function(e) {
-    if (e.target === this) closeModal();
-  });
-</script>
- 
 </html>
