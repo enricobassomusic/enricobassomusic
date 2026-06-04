@@ -697,4 +697,36 @@
 </footer>
 
 </body>
+
+<script>
+  document.querySelectorAll('.open-video').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const videoId = this.getAttribute('data-video');
+      const modal = document.getElementById('videoModal');
+      const iframe = document.getElementById('modalIframe');
+      
+      // Imposta il video con l'autoplay attivo al clic
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+      modal.style.display = 'flex';
+    });
+  });
+
+  // Funzione per chiudere il video e resettare l'iframe (ferma l'audio)
+  function closeModal() {
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('modalIframe');
+    modal.style.display = 'none';
+    iframe.src = ''; 
+  }
+
+  // Chiude cliccando sulla X
+  document.querySelector('.close-modal').addEventListener('click', closeModal);
+
+  // Chiude cliccando in un punto qualsiasi dello sfondo scuro fuori dal video
+  document.getElementById('videoModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+</script>
+ 
 </html>
