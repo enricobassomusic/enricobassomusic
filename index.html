@@ -348,9 +348,9 @@
 
   .form-input,
   .form-textarea {
-    background: var(--dark3);
-    border: 1px solid rgba(255,255,255,0.08);
-    color: var(--text);
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.15);
+    color: #1a1a1a;
     padding: 0.9rem 1.2rem;
     font-family: 'Rajdhani', sans-serif;
     font-size: 1rem;
@@ -361,7 +361,9 @@
   }
 
   .form-input:focus,
-  .form-textarea:focus { border-color: var(--blue); }
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: #aaa;
 
   .form-textarea { height: 120px; }
 
