@@ -17,6 +17,9 @@
     --text: #e8e4dc;
     --text-muted: #e8e4dc;
     --gold: #c9a84c;
+    --copper: #C9A84C;
+    --copper-light: #E8C97A;
+    --copper-glow: rgba(201,168,76,0.15);
   }
 
   html { scroll-behavior: smooth; }
@@ -191,14 +194,12 @@
 
   /* ABOUT STRIP */
   .about-strip {
-    background: var(--dark2);
+    background: #f5f0e8;
     padding: 5rem 6rem;
     display: grid;
     grid-template-columns: 1fr 3px 1fr 3px 1fr;
     gap: 4rem;
     align-items: center;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
   }
 
   .stat { text-align: center; }
@@ -207,20 +208,21 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 3.5rem;
     font-weight: 300;
-    color: var(--blue-light);
+    color: #9a7a2a;
     line-height: 1;
     margin-bottom: 0.5rem;
+    text-shadow: none;
   }
 
   .stat-label {
     font-size: 0.75rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: #6a6055;
   }
 
   .stat-divider {
-    background: rgba(255,255,255,0.08);
+    background: linear-gradient(to bottom, transparent, rgba(154,122,42,0.5), transparent);
     height: 80px;
     width: 1px;
     margin: 0 auto;
