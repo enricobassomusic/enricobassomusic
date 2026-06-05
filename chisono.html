@@ -488,39 +488,38 @@
   <!-- GALLERIA FOTO (4 placeholder, sostituibili) -->
   <div class="photo-gallery">
 
-    <!-- FOTO 1 -->
+<!-- FOTO 1 -->
 <div class="photo-thumb" data-index="0" onclick="openLightbox(0)">
   <img src="foto01.jpg" alt="Enrico Basso">
-  <div class="zoom-icon">
+  <div class="zoom-icon" onclick="event.stopPropagation(); openLightbox(0)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
   </div>
 </div>
 
-    <!-- FOTO 2 -->
-<div class="photo-thumb" data-index="0" onclick="openLightbox(0)">
+<!-- FOTO 2 -->
+<div class="photo-thumb" data-index="1" onclick="openLightbox(1)">
   <img src="foto02.jpg" alt="Enrico Basso">
-  <div class="zoom-icon"> onclick="event.stopPropagation(); openLightbox(0)">
+  <div class="zoom-icon" onclick="event.stopPropagation(); openLightbox(1)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
   </div>
 </div>
 
-    <!-- FOTO 3 -->
-<div class="photo-thumb" data-index="0" onclick="openLightbox(0)">
+<!-- FOTO 3 -->
+<div class="photo-thumb" data-index="2" onclick="openLightbox(2)">
   <img src="foto03.jpg" alt="Enrico Basso">
-  <div class="zoom-icon">
+  <div class="zoom-icon" onclick="event.stopPropagation(); openLightbox(2)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
   </div>
 </div>
 
-    <!-- FOTO 4 -->
-<div class="photo-thumb" data-index="0" onclick="openLightbox(0)">
+<!-- FOTO 4 -->
+<div class="photo-thumb" data-index="3" onclick="openLightbox(3)">
   <img src="foto04.jpg" alt="Enrico Basso">
-  <div class="zoom-icon">
+  <div class="zoom-icon" onclick="event.stopPropagation(); openLightbox(3)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
   </div>
 </div>
-
-  </div>
+</div>
 </section>
 
 <!-- LIGHTBOX -->
