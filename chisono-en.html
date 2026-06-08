@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <link rel="icon" type="image/png" href="favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Me — The Music of Enrico Basso</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --blue: #5BB8FF;
+    --blue-light: #90CFFF;
+    --dark: #0a0a0f;
+    --dark2: #111118;
+    --dark3: #1a1a24;
+    --text: #e8e4dc;
+    --text-muted: #e8e4dc;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    background: linear-gradient(to bottom, rgba(10,10,15,0.97), transparent);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    color: var(--text);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--text);
+    font-weight: 600;
+}
+
+  /* PAGE HERO */
+  .page-hero {
+    padding: 10rem 6rem 4rem;
+    background: var(--dark);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    transition: color 0.3s;
+  }
+  .back-link:hover { color: var(--blue-light); }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: var(--blue);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    color: var(--text);
+  }
+
+  /* MAIN CONTENT */
+  .chisono-content {
+    padding: 0.5rem 6rem 7rem;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  /* LEFT: testo + skills */
+  .bio-text {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--text-muted);
+  }
+
+  .bio-text p { margin-bottom: 1.6rem; }
+  .bio-text p:last-child { margin-bottom: 0; }
+
+  .bio-text strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .bio-text .accent {
+    color: var(--blue-light);
+    font-style: italic;
+  }
+
+  /* Awards */
+  .awards {
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .awards-title {
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .awards-title::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: var(--blue);
+  }
+
+  .award-item {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .award-date {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blue);
+    white-space: nowrap;
+    padding-top: 0.2rem;
+    min-width: 100px;
+  }
+
+  .award-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+  .award-desc strong { color: var(--text); }
+
+  /* Skills */
+  .skills {
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .skills-title {
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .skills-title::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: var(--blue);
+  }
+
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+
+  .skill-tag {
+    background: var(--dark3);
+    border: 1px solid rgba(91,184,255,0.2);
+    color: var(--text-muted);
+    padding: 0.4rem 1rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: default;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .skill-tag:hover {
+    border-color: var(--blue);
+    color: var(--blue-light);
+  }
+
+  /* RIGHT: galleria foto */
+  .photo-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    position: sticky;
+    top: 6rem;
+  }
+
+  .photo-thumb {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    cursor: pointer;
+    background: var(--dark3);
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: border-color 0.3s;
+  }
+  .photo-thumb:hover { border-color: rgba(91,184,255,0.4); }
+
+  .photo-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(20%);
+    transition: transform 0.4s, filter 0.4s;
+  }
+  .photo-thumb:hover img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+  }
+
+  /* Placeholder foto */
+  .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    color: var(--text-muted);
+    opacity: 0.35;
+    padding: 1rem;
+    text-align: center;
+  }
+  .photo-placeholder svg { width: 32px; height: 32px; }
+  .photo-placeholder span {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+
+  /* Overlay zoom */
+  .photo-thumb .zoom-icon {
+    position: absolute;
+    bottom: 0.6rem;
+    right: 0.6rem;
+    width: 28px;
+    height: 28px;
+    background: rgba(91,184,255,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .photo-thumb:hover .zoom-icon { opacity: 1; }
+  .zoom-icon svg { width: 14px; height: 14px; color: #0a0a0f; }
+
+  /* LIGHTBOX */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(10,10,15,0.95);
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  .lightbox.open { display: flex; }
+
+  .lightbox-img {
+    max-width: 80vw;
+    max-height: 85vh;
+    object-fit: contain;
+    filter: grayscale(10%);
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--text);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: border-color 0.3s;
+  }
+  .lightbox-close:hover { border-color: var(--blue); color: var(--blue-light); }
+
+  .lightbox-prev,
+  .lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--text);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: border-color 0.3s;
+  }
+  .lightbox-prev { left: 2rem; }
+  .lightbox-next { right: 2rem; }
+  .lightbox-prev:hover,
+  .lightbox-next:hover { border-color: var(--blue); color: var(--blue-light); }
+
+  /* FOOTER */
+  footer {
+    padding: 2.5rem 6rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--dark);
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+  .footer-copy {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1000px) {
+    .chisono-content { grid-template-columns: 1fr; }
+    .photo-gallery { position: static; grid-template-columns: repeat(4, 1fr); }
+    .photo-thumb { aspect-ratio: 1; }
+  }
+  @media (max-width: 700px) {
+    nav { padding: 1.5rem 2rem; }
+    .nav-links { display: none; } 
+    .nav-links { gap: 1.5rem; }
+    .nav-links a { font-size: 0.75rem; }
+    .page-hero { padding: 7rem 2rem 3rem; }
+    .chisono-content { padding: 3rem 2rem 5rem; }
+    .photo-gallery { grid-template-columns: repeat(2, 1fr); }
+    footer { padding: 2rem; flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">The Music of Enrico Basso</a>
+  <ul class="nav-links">
+    <li><a href="index-en.html">Home</a></li>
+    <li><a href="portfolio-en.html">Portfolio</a></li>
+    <li><a href="index-en.html#contact">Contact</a></li>
+    <li><a href="chisono-en.html" class="active">About Me</a></li>
+  </ul>
+  <span style="color: var(--text-muted); font-size: 0.8rem; letter-spacing: 0.2em;">
+    <strong>IT</strong> | <a href="index-en.html" style="color: var(--text-muted); text-decoration: none;">EN</a>
+  </span>
+</nav>
+
+<div class="page-hero">
+  <a href="index.html" class="back-link">← Back to home</a>
+  <div class="section-label">The story behind the music</div>
+  <h1 class="section-title">About Me</h1>
+</div>
+
+<section class="chisono-content">
+
+  <!-- TESTO -->
+  <div>
+    <div class="bio-text">
+      <p>
+        My name is <strong>Enrico Basso</strong>, I was born in <strong>1989 in Turin, Italy</strong>, and have been studying piano since 1997. Music entered my life as a child and has never left.
+      </p>
+      <p>
+        Tra il 2006 e il 2014 ho suonato come tastierista in diverse band, muovendomi principalmente tra <strong>progressive rock</strong> e <strong>funk/soul</strong>. In quegli anni ho composto brani originali e ho calcato i palchi con oltre <strong>150 concerti</strong> in Italia, Paesi Bassi e Germania — un'esperienza che mi ha formato come musicista e come persona.
+      </p>
+      <p>
+        I have always been deeply fascinated by film music, especially by the great classical and neoclassical Hollywood composers: <strong>Erich Korngold</strong>, <strong>John Williams</strong>, and the American symphonic tradition. It is only in recent years, however, that I decided to turn this passion into concrete practice, focusing on <strong>composition and orchestration for screen</strong>.
+      </p>
+      <p>
+        Today I take part in international film scoring competitions to develop and refine an original style that bridges the symphonic tradition with more contemporary influences.
+      </p>
+      <p>
+        I approach every score as a project — with a structure, a narrative arc, and a clear goal. Music tells stories, and I want to tell them well.
+      </p>
+    </div>
+
+    <!-- AWARDS -->
+    <div class="awards">
+      <div class="awards-title">Awards</div>
+
+      <div class="award-item">
+        <div class="award-date">May 2022</div>
+        <div class="award-desc">
+          Selected among the <strong>TOP 10 composers</strong> at the <strong>Animegaron International Film Music Competition</strong> — an international competition for animated film music.
+        </div>
+      </div>
+
+      <div class="award-item">
+        <div class="award-date">Dec 2022</div>
+        <div class="award-desc">
+          <strong>3rd place</strong> in the Video Game Scoring category with <em>"Die by the blade"</em> at the <strong>FMC — Film Music Contest 2022</strong>.
+        </div>
+      </div>
+    </div>
+
+      <div class="award-item">
+        <div class="award-date">Jan 2024</div>
+        <div class="award-desc">
+          <strong>Finalist</strong> for the re-scoring of the animation "Wing it!" at the <strong>Score Relief 2024</strong> competition.
+        </div>
+      </div>
+
+         
+    <!-- SKILLS -->
+    <div class="skills">
+      <div class="skills-title">Skills</div>
+      <div class="skills-grid">
+        <span class="skill-tag">Composition</span>
+        <span class="skill-tag">Orchestration</span>
+        <span class="skill-tag">Film Scoring</span>
+        <span class="skill-tag">Arrangement</span>
+        <span class="skill-tag">Keyboards</span>
+        <span class="skill-tag">Spotting Emotions</span>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERIA FOTO (4 placeholder, sostituibili) -->
+  <div class="photo-gallery">
+
+<!-- FOTO 1 -->
+<div class="photo-thumb" data-index="0" onclick="openLightbox(0)">
+  <img src="foto01.jpg" alt="Enrico Basso">
+  <div class="zoom-icon" onclick="event.stopPropagation(); openLightbox(0)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+  </div>
+</div>
+
+<!-- FOTO 2 -->
+<div class="photo-thumb" data-index="1" onclick="openLightbox(1)">
+  <img src="foto02.jpg" alt="Enrico Basso">
+  <div class="zoom-icon" onclick="event.stopPropagation(); openLightbox(1)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+  </div>
+</div>
+
+<!-- FOTO 3 -->
+<div class="photo-thumb" data-index="2" onclick="openLightbox(2)">
+  <img src="foto03.jpg" alt="Enrico Basso">
+  <div class="zoom-icon" onclick="event.stopPropagation(); openLightbox(2)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+  </div>
+</div>
+
+<!-- FOTO 4 -->
+<div class="photo-thumb" data-index="3" onclick="openLightbox(3)">
+  <img src="foto04.jpg" alt="Enrico Basso">
+  <div class="zoom-icon" onclick="event.stopPropagation(); openLightbox(3)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-prev" onclick="changeLightbox(-1)">‹</button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="">
+  <button class="lightbox-next" onclick="changeLightbox(1)">›</button>
+</div>
+
+<footer>
+  <div class="footer-logo">The Music of Enrico Basso</div>
+  <div class="footer-copy">© 2026 Enrico Basso · enrico-basso.com</div>
+</footer>
+
+<script>
+  // Array immagini — quando carichi le foto reali, sostituisci i src qui
+  const photos = [
+    { src: 'foto01.jpg', alt: 'Enrico Basso' },
+    { src: 'foto02.jpg', alt: 'Enrico Basso' },
+    { src: 'foto03.jpg', alt: 'Enrico Basso' },
+    { src: 'foto04.jpg', alt: 'Enrico Basso' },
+  ];
+
+  let current = 0;
+
+  function openLightbox(index) {
+    if (!photos[index].src) return; // non apre se è ancora placeholder
+    current = index;
+    document.getElementById('lightbox-img').src = photos[index].src;
+    document.getElementById('lightbox-img').alt = photos[index].alt;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closeLightboxOnBg(e) {
+    if (e.target === document.getElementById('lightbox')) closeLightbox();
+  }
+
+  function changeLightbox(dir) {
+    current = (current + dir + photos.length) % photos.length;
+    if (!photos[current].src) { changeLightbox(dir); return; }
+    document.getElementById('lightbox-img').src = photos[current].src;
+    document.getElementById('lightbox-img').alt = photos[current].alt;
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') changeLightbox(-1);
+    if (e.key === 'ArrowRight') changeLightbox(1);
+  });
+</script>
+
+</body>
+</html>

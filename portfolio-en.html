@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <link rel="icon" type="image/png" href="favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — The Music of Enrico Basso</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --blue: #5BB8FF;
+    --blue-light: #90CFFF;
+    --dark: #0a0a0f;
+    --dark2: #111118;
+    --dark3: #1a1a24;
+    --text: #e8e4dc;
+    --text-muted: #e8e4dc;
+    --gold: #c9a84c;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    background: linear-gradient(to bottom, rgba(10,10,15,0.95), transparent);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    color: var(--text);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--text);
+    font-weight: 600;
+}
+
+  /* PAGE HERO */
+  .portfolio-page-hero {
+    padding: 10rem 6rem 5rem;
+    background: var(--dark);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    transition: color 0.3s;
+  }
+
+  .back-link:hover { color: var(--blue-light); }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: var(--blue);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    color: var(--text);
+  }
+
+  /* PORTFOLIO GRID */
+  .portfolio {
+    padding: 0.5rem 6rem 7rem;
+    background: var(--dark);
+  }
+
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .video-card {
+    background: var(--dark3);
+    border: 1px solid rgba(255,255,255,0.06);
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .video-card:hover {
+    border-color: rgba(91,184,255,0.4);
+  }
+
+  .video-card .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    background: var(--dark2);
+  }
+
+  .video-card .video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Placeholder per slot vuoti */
+  .video-card .video-placeholder {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    color: var(--text-muted);
+    opacity: 0.35;
+  }
+
+  .video-card .video-placeholder svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .video-card .video-placeholder span {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+
+  .video-card-info {
+    padding: 1.2rem 1.5rem;
+  }
+
+  .video-card-type {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 0.3rem;
+  }
+
+  .video-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 2.5rem 6rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--dark);
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1100px) {
+    .video-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 700px) {
+    nav { padding: 1.5rem 2rem; }
+    .nav-links { display: none; }
+    .portfolio-page-hero { padding: 7rem 2rem 3rem; }
+    .portfolio { padding: 3rem 2rem 5rem; }
+    .video-grid { grid-template-columns: 1fr; }
+    footer { padding: 2rem; flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://www.enrico-basso.com" class="nav-logo">The Music of Enrico Basso</a>
+  <ul class="nav-links">
+    <li><a href="index-en.html">Home</a></li>
+    <li><a href="portfolio-en.html" class="active">Portfolio</a></li>
+    <li><a href="index-en.html#contact">Contact</a></li>
+    <li><a href="chisono-en.html">About Me</a></li>
+  </ul>
+  <span style="color: var(--text-muted); font-size: 0.8rem; letter-spacing: 0.2em;">
+    <a href="portfolio.html" style="color: var(--text-muted); text-decoration: none;">IT</a> | <strong>EN</strong>
+  </span>
+</nav>
+
+<div class="portfolio-page-hero">
+  <a href="index.html" class="back-link">← Back to home</a>
+  <div class="section-label">All works</div>
+  <h1 class="section-title">Portfolio</h1>
+</div>
+
+<section class="portfolio">
+  <div class="video-grid">
+
+    <!-- 1 — COMPILATO -->
+    <div class="video-card">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/YgvUfaiaVJg" title="Die by the blade" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-type">Video Game | 2022</div>
+        <div class="video-card-title">Die by the blade (FMC Film Music Contest 2022)</div>
+      </div>
+    </div>
+
+    <!-- 2 — COMPILATO -->
+    <div class="video-card">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/ckvKXzXSyZc" title="The Ahead" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-type">Animation | 2022</div>
+        <div class="video-card-title">The Ahead (Animegaron International Animated Film Music Competition)</div>
+      </div>
+    </div>
+
+    <!-- 3 — Anastasia -->
+    <div class="video-card">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/bPpp-GswlLc?si=hOs5rarVTSIgl2v_" title="Learn to do it" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-type">ORCHESTRATION | 2024</div>
+        <div class="video-card-title">Learn to do it (Anastasia, 1997)</div>
+      </div>
+    </div>
+
+    <!-- 4 — Pinocchio -->
+    <div class="video-card">
+      <div class="video-wrapper">
+         <iframe src="https://www.youtube.com/embed/eyuisDTaXjk?si=1eicmknss2nqLL8Y" title="Learn to do it" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-type">FILM | 2024</div>
+        <div class="video-card-title">Pinocchio (Chigiana International Film Scoring Competition)</div>
+      </div>
+    </div>
+
+    <!-- 5 — Wing it! -->
+ <div class="video-card">
+      <div class="video-wrapper">
+         <iframe src="https://www.youtube.com/embed/rbyd48QX-Tc?si=mA3RJktMUJT0icL8" title="Learn to do it" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-type">ANIMATION | 2024</div>
+        <div class="video-card-title">Wing it! (Score Relief 2024)</div>
+      </div>
+    </div>
+
+    <!-- 6 — Agent 327 -->
+ <div class="video-card">
+      <div class="video-wrapper">
+         <iframe src="https://www.youtube.com/embed/E27BDT1zKCQ?si=q-ihMz2oH49RODUw" title="Learn to do it" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-type">ANIMATION | 2023</div>
+        <div class="video-card-title">Indie Film Music Contest Winter '22</div>
+      </div>
+    </div>
+
+    <!-- 7 — Ensoniq -->
+    <div class="video-card">
+      <div class="video-wrapper">
+         <iframe src="https://www.youtube.com/embed/fwRFf8QLhKo?si=BklDpb4Z70WojaPI" title="Ensoniq VFX Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-type">PERFORMANCE | 2025</div>
+        <div class="video-card-title">Ensoniq VFX Demo</div>
+      </div>
+    </div>
+
+    <!-- 8 — Trail of light -->
+    <div class="video-card">
+      <div class="video-wrapper">
+         <iframe src="https://www.youtube.com/embed/6RQ1gmJk94Y?si=hR3QQBKakqhmU1IA" title="Trail of light" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-type">ANIMATION | 2023</div>
+        <div class="video-card-title">Trail of light (Berlin International Film Scoring Competition 2024)</div>
+      </div>
+    </div>
+
+    <!-- 9 — Tadeo Jones 3 -->
+    <div class="video-card">
+      <div class="video-wrapper">
+         <iframe src="https://www.youtube.com/embed/W_4qvlOID3Q?si=3JheY-BwKXoa5KbX" title="Tadeo Jones 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-type">ANIMATION | 2023</div>
+        <div class="video-card-title">Tadeo Jones 3 (ScoreLive London Competition 2023)</div>
+      </div>
+    </div>
+
+    <!-- 10 — La bottega degli amici immaginari -->
+    <div class="video-card">
+      <div class="video-wrapper">
+         <iframe src="https://www.youtube.com/embed/u9sNOAWBziY?si=vN3s1N2epi9fh48K" title="La bottega degli amici immaginari" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-type">ANIMATION | 2022</div>
+        <div class="video-card-title">La bottega degli amici immaginari (Premio Mercurio D'Argento)</div>
+      </div>
+    </div>
+
+    <!-- 11 — Bridgerton -->
+    <div class="video-card">
+      <div class="video-wrapper">
+         <iframe src="https://www.youtube.com/embed/wqRMDgjxnBQ?si=sV-2M-oTX_zA4muE" title="Bridgerton" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-type">FILM | 2022</div>
+        <div class="video-card-title">Bridgerton (Spitfire Audio Scoring Competition)</div>
+      </div>
+    </div>
+
+    <!-- 12 — Klaus -->
+    <div class="video-card">
+      <div class="video-wrapper">
+         <iframe src="https://www.youtube.com/embed/35SfDTy5a1I?si=KxMferZpLUDycTWa" title="Klaus" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-info">
+        <div class="video-card-type">ANIMATION | 2022</div>
+        <div class="video-card-title">Klaus (ScoreLive London Film Scoring Competition)</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">The Music of Enrico Basso</div>
+  <div class="footer-copy">© 2026 Enrico Basso · enrico-basso.com</div>
+</footer>
+
+</body>
+</html>
