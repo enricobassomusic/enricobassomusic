@@ -67,7 +67,10 @@
   }
 
   .nav-links a:hover,
-  .nav-links a.active { color: var(--text); }
+  .nav-links a.active {
+    color: var(--text);
+    font-weight: 600;
+  }
 
   /* PAGE HERO */
   .page-hero {
@@ -400,8 +403,7 @@
   }
   @media (max-width: 700px) {
     nav { padding: 1.5rem 2rem; }
-    .nav-links { display: none; } 
-    .nav-links { gap: 1.5rem; }
+    .nav-links { display: none; }
     .nav-links a { font-size: 0.75rem; }
     .page-hero { padding: 7rem 2rem 3rem; }
     .chisono-content { padding: 3rem 2rem 5rem; }
@@ -415,14 +417,11 @@
 <nav>
   <a href="index.html" class="nav-logo">The Music of Enrico Basso</a>
   <ul class="nav-links">
-    <li><a href="https://www.enrico-basso.com">Home</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="portfolio.html">Portfolio</a></li>
     <li><a href="index.html#contact">Contatti</a></li>
     <li><a href="chisono.html" class="active">Chi Sono</a></li>
   </ul>
-  <span style="color: var(--text-muted); font-size: 0.8rem; letter-spacing: 0.2em;">
-    IT | <a href="index-en.html" style="color: var(--text-muted); text-decoration: none;">EN</a>
-  </span>
 </nav>
 
 <div class="page-hero">
@@ -440,7 +439,7 @@
         Mi chiamo <strong>Enrico Basso</strong>, sono nato nel <strong>1989 a Torino</strong> e studio pianoforte dal 1997. La musica è entrata nella mia vita da bambino e non ne è più uscita.
       </p>
       <p>
-        Tra il 2006 e il 2014 ho suonato come tastierista in diverse band, muovendomi principalmente tra <strong><span class="accent">progressive rock</span></strong> e <strong><span class="accent">funk/soul</span></span></strong>. In quegli anni ho composto brani originali e ho calcato i palchi con oltre <strong>150 concerti</strong> in Italia, Paesi Bassi e Germania — un'esperienza che mi ha formato come musicista e come persona.
+        Tra il 2006 e il 2014 ho suonato come tastierista in diverse band, muovendomi principalmente tra <strong><span class="accent">progressive rock</span></strong> e <strong><span class="accent">funk/soul</span></span>. In quegli anni ho composto brani originali e ho calcato i palchi con oltre <strong>150 concerti</strong> in Italia, Paesi Bassi e Germania — un'esperienza che mi ha formato come musicista e come persona.
       </p>
       <p>
         Ho sempre avuto una profonda fascinazione per la musica da film, in particolare per i grandi maestri classici e neoclassici di Hollywood: <strong>Erich Korngold</strong>, <strong>John Williams</strong>, la tradizione sinfonica americana. 
@@ -479,7 +478,7 @@
           <strong>Finalista</strong> per il re-scoring dell'animazione "Wing it!" nel concorso <strong>Score Relief 2024</strong>.
         </div>
       </div>
-
+    </div>
          
     <!-- SKILLS -->
     <div class="skills">
@@ -488,10 +487,11 @@
         <span class="skill-tag">Composizione</span>
         <span class="skill-tag">Orchestrazione</span>
         <span class="skill-tag">Film Scoring</span>
-        <span class="skill-tag">Arrangiamento</span>
-        <span class="skill-tag">Tastiere</span>
-        <span class="skill-tag">Spotting Emotions</span>
-
+        <span class="skill-tag">Sintetizzatori</span>
+        <span class="skill-tag">Pianoforte</span>
+        <span class="skill-tag">Live Performance</span>
+        <span class="skill-tag">Placeholder skill</span>
+        <span class="skill-tag">Placeholder skill</span>
       </div>
     </div>
   </div>
